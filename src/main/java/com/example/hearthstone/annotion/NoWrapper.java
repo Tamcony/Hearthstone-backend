@@ -1,4 +1,4 @@
-package pub.tam.blog.annotion;
+package com.example.hearthstone.annotion;
 
 import java.lang.annotation.*;
 

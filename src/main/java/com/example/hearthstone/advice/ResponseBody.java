@@ -1,7 +1,9 @@
-package pub.tam.blog.advise;
+package com.example.hearthstone.advice;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.example.hearthstone.annotion.NoWrapper;
+import com.example.hearthstone.model.HttpResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
@@ -11,10 +13,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import pub.tam.blog.annotion.NoWrapper;
-import pub.tam.blog.model.HttpResponse;
 
-@RestControllerAdvice(basePackages = "pub.tam.blog.controller")
+@RestControllerAdvice(basePackages = "com.example.hearthstone.controller")
 public class ResponseBody implements ResponseBodyAdvice {
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {

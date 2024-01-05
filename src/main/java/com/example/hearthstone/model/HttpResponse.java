@@ -1,4 +1,4 @@
-package pub.tam.blog.model;
+package com.example.hearthstone.model;
 
 import java.io.Serializable;
 
