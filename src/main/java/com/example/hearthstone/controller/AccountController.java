@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -30,20 +27,27 @@ public class AccountController {
 
     @PostMapping("/accounts")
     public Account CreateAccount(
-            @RequestParam("account") String account,
-            @RequestParam("email") String email,
-            @RequestParam("password") String password,
-            @RequestParam("gold") int gold,
-            @RequestParam("dust") int dust,
-            @RequestParam("area") String area
+            @RequestBody Account user
     ){
-        Account user = new Account();
-        user.setAccount(account);
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setGold(gold);
-        user.setDust(dust);
-        user.setArea(area);
-        return user;
+        return accountService.insert(user);
+    }
+
+    @GetMapping("/accounts/{id}")
+    public Account getAccountById(@PathVariable("id") String id) {
+        return accountService.findById(id);
+    }
+
+    @PutMapping("/accounts/{id}")
+    public Account updateAccount(
+            @PathVariable("id") String id,
+            @RequestBody Account user
+    ){
+        user.setId(id);
+        return accountService.update(user);
+    }
+
+    @DeleteMapping("/accounts/{id}")
+    public void deleteAccount(@PathVariable("id") String id) {
+        accountService.delete(id);
     }
 }

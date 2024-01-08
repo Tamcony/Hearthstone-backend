@@ -20,4 +20,20 @@ public class AccountService {
         return accountRepository.findAll(pageable);
     }
 
+    public Account insert(Account account) {
+        return accountRepository.insert(account);
+    }
+
+    public Account findById(String id) {
+        return accountRepository.findById(id).orElse(null);
+    }
+
+    public Account update(Account account) {
+        return accountRepository.save(account);
+    }
+
+    public void delete(String id) {
+        accountRepository.deleteById(id);
+    }
+
 }

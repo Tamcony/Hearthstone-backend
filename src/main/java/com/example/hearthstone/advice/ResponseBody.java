@@ -26,7 +26,7 @@ public class ResponseBody implements ResponseBodyAdvice {
     @ExceptionHandler(Exception.class)
     public HttpResponse exceptionHandler(Exception e){
         HttpResponse httpResponse = new HttpResponse();
-        httpResponse.error();
+        httpResponse.error(e.getMessage());
         return httpResponse;
     }
     @Override

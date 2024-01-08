@@ -14,6 +14,18 @@ public class HttpResponse implements Serializable {
         this.data = null;
     }
 
+    public void error(String message){
+        this.code = ResultCode.ERROR;
+        this.message = message;
+        this.data = null;
+    }
+
+    public void error(Integer code ,String message){
+        this.code = code;
+        this.message = message;
+        this.data = null;
+    }
+
     public void success(Object data){
         this.code = ResultCode.SUCCESS;
         this.message = "";
